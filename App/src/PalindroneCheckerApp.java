@@ -1,34 +1,32 @@
-public class PalindroneCheckerApp{
+public class PalindroneCheckerApp
 
     /**
-     * Application entry point for UC4.
+     * Application entry point for UC5.
      *
      * @param args Command-line arguments
      */
     public static void main(String[] args) {
 
-        // Declare and initialize input
-        String input = "radar";
+        // Declare and initialize input string
+        String input = "noon";
 
-        // Convert string to character array
-        char[] chars = input.toCharArray();
+        // Create stack
+        Stack<Character> stack = new Stack<>();
 
-        // Initialize pointers
-        int start = 0;
-        int end = chars.length - 1;
+        // Push characters into stack
+        for (char c : input.toCharArray()) {
+            stack.push(c);
+        }
 
         boolean isPalindrome = true;
 
-        // Two-pointer comparison
-        while (start < end) {
+        // Pop and compare
+        for (char c : input.toCharArray()) {
 
-            if (chars[start] != chars[end]) {
+            if (c != stack.pop()) {
                 isPalindrome = false;
                 break;
             }
-
-            start++;
-            end--;
         }
 
         System.out.println("Input : " + input);
