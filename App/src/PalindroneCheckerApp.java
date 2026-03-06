@@ -1,34 +1,42 @@
-public class PalindroneCheckerApp
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
-    /**
-     * Application entry point for UC5.
-     *
-     * @param args Command-line arguments
-     */
+public class PalindroneCheckerApp {
+
     public static void main(String[] args) {
 
-        // Declare and initialize input string
-        String input = "noon";
+        // Define input string
+        String input = "civic";
 
-        // Create stack
+        // Create Queue (FIFO)
+        Queue<Character> queue = new LinkedList<>();
+
+        // Create Stack (LIFO)
         Stack<Character> stack = new Stack<>();
 
-        // Push characters into stack
+        // Insert characters into both queue and stack
         for (char c : input.toCharArray()) {
-            stack.push(c);
+            queue.add(c);     // enqueue
+            stack.push(c);    // push
         }
 
+        // Flag to track palindrome
         boolean isPalindrome = true;
 
-        // Pop and compare
-        for (char c : input.toCharArray()) {
+        // Compare dequeue vs pop
+        while (!queue.isEmpty()) {
 
-            if (c != stack.pop()) {
+            char fromQueue = queue.remove();  // dequeue
+            char fromStack = stack.pop();     // pop
+
+            if (fromQueue != fromStack) {
                 isPalindrome = false;
                 break;
             }
         }
 
+        // Print result
         System.out.println("Input : " + input);
         System.out.println("Is Palindrome? : " + isPalindrome);
     }
