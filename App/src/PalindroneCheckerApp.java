@@ -2,7 +2,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class PalindroneCheckerApp
+public class PalindroneCheckerApp {
 
     public static void main(String[] args) {
 
