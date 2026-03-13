@@ -1,5 +1,4 @@
-public class UC9 {
-
+public class PalindroneCheckerApp{
     public static void main(String[] args) {
 
         String input = "madam";
